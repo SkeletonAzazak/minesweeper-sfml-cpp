@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Minesweeper",
+      "type": "shell",
+      "command": "C:/msys64/ucrt64/bin/g++.exe",
+      "args": [
+        "main.cpp",
+        "Cell.cpp",
+        "Field.cpp",
+        "GetCell.cpp",
+        "Draw.cpp",
+        "-o",
+        "minesweeper.exe",
+        "-std=c++17",
+        "-lsfml-graphics",
+        "-lsfml-window",
+        "-lsfml-system"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Minesweeper Without Debug",
+      "type": "shell",
+      "command": "${workspaceFolder}/minesweeper.exe",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+        }
+      },
+      "dependsOn": "Build Minesweeper",
+      "problemMatcher": []
+    }
+  ]
+}
